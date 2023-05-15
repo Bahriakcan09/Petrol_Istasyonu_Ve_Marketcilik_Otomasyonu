@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GeneralPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GeneralPage.Designer.cs">
+      <DependentUpon>GeneralPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarketPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MarketPage.Designer.cs">
+      <DependentUpon>MarketPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PetrolPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PetrolPage.Designer.cs">
+      <DependentUpon>PetrolPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

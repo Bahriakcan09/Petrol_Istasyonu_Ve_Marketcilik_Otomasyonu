@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 {
-    public partial class Form1 : Form
+    public partial class MarketPage : Form
     {
-        public Form1()
+        public MarketPage()
         {
             InitializeComponent();
         }
