@@ -202,6 +202,7 @@
     <Compile Include="GeneralPage.Designer.cs">
       <DependentUpon>GeneralPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="internetCheck.cs" />
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
