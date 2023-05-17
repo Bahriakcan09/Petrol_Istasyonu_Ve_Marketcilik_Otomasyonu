@@ -48,8 +48,9 @@
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(315, 45);
             this.LoginBtn.TabIndex = 14;
-            this.LoginBtn.Text = "Giriş Yap";
+            this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = false;
+            this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
             // passwordTxt
             // 
