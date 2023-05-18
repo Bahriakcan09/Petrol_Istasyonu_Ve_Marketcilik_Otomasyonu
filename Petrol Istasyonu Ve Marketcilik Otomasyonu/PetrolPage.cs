@@ -25,7 +25,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             depo_bilgileri = System.IO.File.ReadAllLines(Application.StartupPath + "\\depo.txt");
             M_Benzin = Convert.ToDouble(depo_bilgileri[0]); 
              M_Dizel = Convert.ToDouble(depo_bilgileri[1]);
-             M_LPG = Convert.ToDouble(depo_bilgileri[2]);
+             M_LPG = Convert.ToDouble(depo_bilgileri[2]); 
         }
         private void txt_depo_yaz()
         {
