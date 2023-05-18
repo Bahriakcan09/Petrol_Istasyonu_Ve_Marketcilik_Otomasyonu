@@ -33,11 +33,19 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             label2.Text = M_Dizel.ToString("N");
             label3.Text = M_LPG.ToString("N");
         }
+        private void progressBar_guncelle()
+        {
+            progressBar1.Value = Convert.ToInt16(M_Benzin);
+            progressBar2.Value = Convert.ToInt16(M_Dizel);
+            progressBar3.Value = Convert.ToInt16(M_LPG);
+        }
 
         private void PetrolPage_Load(object sender, EventArgs e)
         {
+           
             txt_depo_oku();
             txt_depo_yaz();
+            progressBar_guncelle();
         }
     }
 }
