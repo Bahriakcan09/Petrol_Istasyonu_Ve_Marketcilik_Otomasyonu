@@ -30,7 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
@@ -43,9 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -85,15 +85,32 @@
             this.tabPage1.Text = "Depo Bilgileri";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // button1
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(792, 421);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(618, 353);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(141, 46);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "depoyu güncelle";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(88, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(183, 16);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "mevcut akaryakıt miktarı(Litre)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(306, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 16);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Eklenen(Litre)";
             // 
             // progressBar3
             // 
@@ -191,32 +208,15 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "label1";
             // 
-            // label5
+            // tabPage2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(183, 16);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "mevcut akaryakıt miktarı(Litre)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(306, 18);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 16);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Eklenen(Litre)";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(618, 353);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 46);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "depoyu güncelle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(792, 421);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // PetrolPage
             // 
@@ -226,6 +226,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "PetrolPage";
             this.Text = "PetrolPage";
+            this.Load += new System.EventHandler(this.PetrolPage_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

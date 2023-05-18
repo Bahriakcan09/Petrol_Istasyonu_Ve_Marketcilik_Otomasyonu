@@ -229,6 +229,9 @@
     <EmbeddedResource Include="MarketPage.resx">
       <DependentUpon>MarketPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PetrolPage.resx">
+      <DependentUpon>PetrolPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
