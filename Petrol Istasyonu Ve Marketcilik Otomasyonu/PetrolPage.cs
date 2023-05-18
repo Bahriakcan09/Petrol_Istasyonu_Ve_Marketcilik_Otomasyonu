@@ -42,7 +42,9 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         private void PetrolPage_Load(object sender, EventArgs e)
         {
-           
+            progressBar1.Maximum = 1000;
+            progressBar2.Maximum = 1000;
+            progressBar3.Maximum = 1000;
             txt_depo_oku();
             txt_depo_yaz();
             progressBar_guncelle();
