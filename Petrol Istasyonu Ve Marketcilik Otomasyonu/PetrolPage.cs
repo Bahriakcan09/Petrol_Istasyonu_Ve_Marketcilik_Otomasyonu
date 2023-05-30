@@ -46,7 +46,6 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             label12.Text=F_Benzin.ToString("N");
             label14.Text = F_Dizel.ToString("N");
             label13.Text = F_LPG.ToString("N");
-
         }
         private void progressBar_guncelle()
         {
