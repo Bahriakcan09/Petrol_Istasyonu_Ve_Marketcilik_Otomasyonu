@@ -965,7 +965,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MarketPage";
             this.Text = "MarketPage";
-            this.Load += new System.EventHandler(this.MarketPage_Load);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).EndInit();
