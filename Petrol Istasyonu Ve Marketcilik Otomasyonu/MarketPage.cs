@@ -63,15 +63,25 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_ClickAsync(object sender, EventArgs e)
         {
             FirebaseClient firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
-            firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).DeleteAsync();
+            await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).DeleteAsync();
+            button4.PerformClick();
                    }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async void button3_ClickAsync(object sender, EventArgs e)
         {
+            var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+            //var data = await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).OnceSingleAsync<URUNLER>();
+            URUNLER urn = new URUNLER();
 
+                urn.İd = Convert.ToInt32(textBox1.Text);
+                urn.Ad = textBox2.Text;
+                urn.Fiyat = Convert.ToDouble(textBox3.Text);
+                urn.Adet = Convert.ToInt32(textBox4.Text);
+
+            await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
         }
     }
 }
