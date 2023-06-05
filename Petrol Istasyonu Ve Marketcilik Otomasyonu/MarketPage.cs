@@ -27,11 +27,13 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             dataGridView1.Columns.Add("AdSutunu", "Ad");
             dataGridView1.Columns.Add("FiyatSutunu", "Fiyat");
             dataGridView1.Columns.Add("StokSutunu", "Stok");
+            dataGridView1.Columns.Add("KeySutunu", "key");
+            dataGridView1.Columns[4].Visible = false;
             var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
             var data = await firebase.Child("001").Child("Urunler").OnceAsync<URUNLER>();
             foreach (var item in data)
             {
-                dataGridView1.Rows.Add(item.Object.İd,item.Object.Ad,item.Object.Fiyat,item.Object.Adet);
+                dataGridView1.Rows.Add(item.Object.İd,item.Object.Ad,item.Object.Fiyat,item.Object.Adet,item.Key);
             }
 
         }
@@ -55,6 +57,22 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 MessageBox.Show("Urunler çekilemedi.");
             }
             }
+
+        private void MarketPage_Load(object sender, EventArgs e)
+        {
+
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FirebaseClient firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+            firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).DeleteAsync();
+                   }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
 

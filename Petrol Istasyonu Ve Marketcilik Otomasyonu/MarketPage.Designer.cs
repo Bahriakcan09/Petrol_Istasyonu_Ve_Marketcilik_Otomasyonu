@@ -413,7 +413,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.BackColor = System.Drawing.Color.Black;
             this.tabPage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabPage1.Controls.Add(this.pictureBox32);
             this.tabPage1.Controls.Add(this.pictureBox24);
@@ -903,6 +903,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Sil";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -912,6 +913,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Güncelle";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -987,6 +989,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "MarketPage";
             this.Text = "MarketPage";
+            this.Load += new System.EventHandler(this.MarketPage_Load);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).EndInit();
