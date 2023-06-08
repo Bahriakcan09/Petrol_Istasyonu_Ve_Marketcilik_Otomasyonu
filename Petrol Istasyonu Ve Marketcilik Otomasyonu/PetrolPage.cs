@@ -41,6 +41,26 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             }
 
         }
+        private async Task Petrol_GuncelleAsync(string key)
+        {
+            try
+            {
+                var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+                petrolfiyat petrol = new petrolfiyat();
+                petrol.İd = Convert.ToInt32(textBox9.Text);
+                petrol.Ad = textBox8.Text;
+                petrol.Litre = Convert.ToInt32(textBox10.Text);
+                petrol.Fiyat = Convert.ToDouble(textBox7.Text);
+
+                await firebase.Child("001").Child("Petroller").Child(key).PutAsync(petrol);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Urunler Güncellenemedi.");
+            }
+           
+        }
 
         private void PetrolPage_Load(object sender, EventArgs e)
         {
@@ -68,19 +88,19 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             }
         }
 
-        private void dataGridView1_RowDividerDoubleClick(object sender, DataGridViewRowDividerDoubleClickEventArgs e)
-        {
-
-        }
-
         private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
+           
             textBox9.Text = dataGridView1.SelectedRows[0].Cells[0].Value?.ToString();
             textBox8.Text = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
             textBox7.Text = dataGridView1.SelectedRows[0].Cells[2].Value?.ToString();
             textBox10.Text = dataGridView1.SelectedRows[0].Cells[3].Value?.ToString();
-            MessageBox.Show(textBox8.Text);
+            
+        }
+
+        private async void button5_ClickAsync(object sender, EventArgs e)
+        {
+            await Petrol_GuncelleAsync(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString());
         }
     }
 }
