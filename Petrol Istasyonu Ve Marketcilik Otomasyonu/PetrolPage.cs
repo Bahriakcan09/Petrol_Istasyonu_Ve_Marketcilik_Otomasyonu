@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,11 +19,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         {
             InitializeComponent();
         }
-        double M_Benzin = 0, M_Dizel = 0, M_LPG = 0; //kullanacağımız değişkenleri tanımladık
-        double E_Benzin = 0, E_Dizel = 0, E_LPG = 0;
-        double F_Benzin = 0, F_Dizel = 0, F_LPG = 0;
-        string[] depo_bilgileri;
-        string[] fiyat_bilgileri;
+        
 
         private async void button3_ClickAsync(object sender, EventArgs e)
         {
@@ -45,47 +42,45 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         }
 
-        private void txt_depo_oku()
-        { //burada petrol türlerimiz double, dizimiz string olduğu için dizimizi double değişkenine çeviriyoruz. 
-            depo_bilgileri = System.IO.File.ReadAllLines(Application.StartupPath + "\\depo.txt");
-            M_Benzin = Convert.ToDouble(depo_bilgileri[0]); 
-             M_Dizel = Convert.ToDouble(depo_bilgileri[1]);
-             M_LPG = Convert.ToDouble(depo_bilgileri[2]); 
-        }
-        private void txt_depo_yaz()
-        {
-            label1.Text = M_Benzin.ToString("N"); //virgülden sonra basamak sayısını 2ye ayarlıyoruz.
-            label2.Text = M_Dizel.ToString("N");
-            label3.Text = M_LPG.ToString("N");
-        }
-        private void txt_fiyat_oku()
-        {
-            fiyat_bilgileri = System.IO.File.ReadAllLines(Application.StartupPath + "\\fiyat.txt");
-            F_Benzin = Convert.ToDouble(fiyat_bilgileri[0]);
-            F_Dizel = Convert.ToDouble(fiyat_bilgileri[1]);
-            F_LPG = Convert.ToDouble(fiyat_bilgileri[2]);
-        }
-        private void txt_fiyat_yaz()
-        {
-            label12.Text=F_Benzin.ToString("N");
-            label14.Text = F_Dizel.ToString("N");
-            label13.Text = F_LPG.ToString("N");
-        }
-        private void progressBar_guncelle()
-        {
-            progressBar1.Value = Convert.ToInt16(M_Benzin);
-            progressBar2.Value = Convert.ToInt16(M_Dizel);
-            progressBar3.Value = Convert.ToInt16(M_LPG);
-        }
-
         private void PetrolPage_Load(object sender, EventArgs e)
         {
             progressBar1.Maximum = 1000;
             progressBar2.Maximum = 1000;
             progressBar3.Maximum = 1000;
-            //txt_depo_oku();
-            //txt_depo_yaz();
-            //progressBar_guncelle();
+            
+        }
+
+        private async void button4_ClickAsync(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            dataGridView1.Columns.Add("İdSutunu", "Id");
+            dataGridView1.Columns.Add("AdSutunu", "Ad");
+            dataGridView1.Columns.Add("FiyatSutunu", "Fiyat");
+            dataGridView1.Columns.Add("StokSutunu", "Litre");
+            dataGridView1.Columns.Add("KeySutunu", "key");
+            dataGridView1.Columns[4].Visible = false;
+            var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+            var data = await firebase.Child("001").Child("Petroller").OnceAsync<petrolfiyat>();
+            foreach (var item in data)
+            {
+                dataGridView1.Rows.Add(item.Object.İd, item.Object.Ad, item.Object.Fiyat, item.Object.Litre, item.Key);
+            }
+        }
+
+        private void dataGridView1_RowDividerDoubleClick(object sender, DataGridViewRowDividerDoubleClickEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
+            textBox9.Text = dataGridView1.SelectedRows[0].Cells[0].Value?.ToString();
+            textBox8.Text = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
+            textBox7.Text = dataGridView1.SelectedRows[0].Cells[2].Value?.ToString();
+            textBox10.Text = dataGridView1.SelectedRows[0].Cells[3].Value?.ToString();
+            MessageBox.Show(textBox8.Text);
         }
     }
 }

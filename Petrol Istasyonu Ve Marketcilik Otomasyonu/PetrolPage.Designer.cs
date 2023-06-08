@@ -57,19 +57,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.Fiyatgüncel = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.Fiyatgüncel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -337,6 +341,9 @@
             // 
             // Fiyatgüncel
             // 
+            this.Fiyatgüncel.Controls.Add(this.button5);
+            this.Fiyatgüncel.Controls.Add(this.button4);
+            this.Fiyatgüncel.Controls.Add(this.dataGridView1);
             this.Fiyatgüncel.Controls.Add(this.button3);
             this.Fiyatgüncel.Controls.Add(this.textBox10);
             this.Fiyatgüncel.Controls.Add(this.textBox7);
@@ -353,15 +360,52 @@
             this.Fiyatgüncel.Text = "Fiyatgüncel";
             this.Fiyatgüncel.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(174, 321);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(137, 47);
+            this.button5.TabIndex = 15;
+            this.button5.Text = "Güncelle";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(647, 320);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(137, 47);
+            this.button4.TabIndex = 15;
+            this.button4.Text = "Listele";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_ClickAsync);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(296, 35);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(488, 231);
+            this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseDoubleClick_1);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(657, 315);
+            this.button3.Location = new System.Drawing.Point(20, 321);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(114, 46);
             this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
+            this.button3.Text = "Ekle";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_ClickAsync);
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(165, 244);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 22);
+            this.textBox10.TabIndex = 10;
             // 
             // textBox7
             // 
@@ -376,6 +420,15 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 22);
             this.textBox8.TabIndex = 11;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(34, 247);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(32, 16);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Litre";
             // 
             // textBox9
             // 
@@ -411,22 +464,6 @@
             this.label20.TabIndex = 4;
             this.label20.Text = "id";
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(34, 247);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(32, 16);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Litre";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(165, 244);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 22);
-            this.textBox10.TabIndex = 10;
-            // 
             // PetrolPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,6 +480,7 @@
             this.tabPage2.PerformLayout();
             this.Fiyatgüncel.ResumeLayout(false);
             this.Fiyatgüncel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,5 +525,8 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
