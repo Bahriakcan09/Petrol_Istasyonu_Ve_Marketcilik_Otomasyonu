@@ -232,6 +232,7 @@
     <Compile Include="MarketPage.Designer.cs">
       <DependentUpon>MarketPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="petrolfiyat.cs" />
     <Compile Include="PetrolPage.cs">
       <SubType>Form</SubType>
     </Compile>

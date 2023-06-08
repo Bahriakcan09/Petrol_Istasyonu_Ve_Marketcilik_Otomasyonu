@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Firebase.Database;
+using Firebase.Database.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +23,28 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         double F_Benzin = 0, F_Dizel = 0, F_LPG = 0;
         string[] depo_bilgileri;
         string[] fiyat_bilgileri;
+
+        private async void button3_ClickAsync(object sender, EventArgs e)
+        {
+            try
+            {
+                var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+                petrolfiyat petrol = new petrolfiyat();
+                petrol.İd = Convert.ToInt32(textBox9.Text);
+                petrol.Ad = textBox8.Text;
+                petrol.Litre = Convert.ToInt32(textBox10.Text);
+                petrol.Fiyat = Convert.ToDouble(textBox7.Text);
+
+                await firebase.Child("001").Child("Petroller").PostAsync(petrol);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Urunler çekilemedi.");
+            }
+
+        }
+
         private void txt_depo_oku()
         { //burada petrol türlerimiz double, dizimiz string olduğu için dizimizi double değişkenine çeviriyoruz. 
             depo_bilgileri = System.IO.File.ReadAllLines(Application.StartupPath + "\\depo.txt");
@@ -59,9 +83,9 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             progressBar1.Maximum = 1000;
             progressBar2.Maximum = 1000;
             progressBar3.Maximum = 1000;
-            txt_depo_oku();
-            txt_depo_yaz();
-            progressBar_guncelle();
+            //txt_depo_oku();
+            //txt_depo_yaz();
+            //progressBar_guncelle();
         }
     }
 }

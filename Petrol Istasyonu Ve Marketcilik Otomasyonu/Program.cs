@@ -16,7 +16,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MarketPage());
+            Application.Run(new PetrolPage());
         }
     }
 }
