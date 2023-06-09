@@ -22,5 +22,17 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string marketID {
+            get {
+                return ((string)(this["marketID"]));
+            }
+            set {
+                this["marketID"] = value;
+            }
+        }
     }
 }

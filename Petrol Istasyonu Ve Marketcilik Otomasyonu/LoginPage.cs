@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Firebase.Database;
+using Firebase.Database.Query;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 {
@@ -29,16 +32,41 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             bool login = await loginAsync();
             if (login)
             {
-                GeneralPage generalPage = new GeneralPage();
-                generalPage.Show();
-                this.Hide();
+                if(await searchMarketAsync())
+                {
+                    GeneralPage generalPage = new GeneralPage();
+                    generalPage.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Bir hata meydana geldi tekrar deneyiniz");
+                }
             }
             else
             {
                 MessageBox.Show("Giris Basarisiz");
             }
         }
-
+        private async Task<bool> searchMarketAsync()
+        {
+            if (!internetCheck.internet())
+            {
+                var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+                var data = await firebase.Child("MarketCalisanlari").OnceAsync<Market>();
+                foreach (var item in data)
+                {
+                    if(usernameTxt.Text == item.Object.Mail)
+                    {
+                        Properties.Settings.Default.marketID = item.Object.Id;
+                        Properties.Settings.Default.Save();
+                        return true;
+                    }
+                }
+                return false;
+            }  
+            return false;
+    }
         private async Task<bool> loginAsync()
         {
             var config = new FirebaseAuthConfig

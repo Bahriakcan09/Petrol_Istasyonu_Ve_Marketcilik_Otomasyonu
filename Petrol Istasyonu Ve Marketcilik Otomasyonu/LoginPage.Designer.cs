@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             this.LoginBtn = new System.Windows.Forms.Button();
             this.passwordTxt = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -63,7 +64,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu.Properties.Resources.password;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(69, 223);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
@@ -84,7 +85,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu.Properties.Resources.mail;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(69, 166);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
