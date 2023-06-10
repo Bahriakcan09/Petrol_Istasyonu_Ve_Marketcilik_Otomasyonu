@@ -105,6 +105,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox59 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox50)).BeginInit();
@@ -169,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox56)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox59)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage3
@@ -887,7 +890,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(107, 125);
+            this.button1.Location = new System.Drawing.Point(107, 251);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 23);
             this.button1.TabIndex = 3;
@@ -897,7 +900,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(107, 152);
+            this.button2.Location = new System.Drawing.Point(107, 278);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(133, 23);
             this.button2.TabIndex = 3;
@@ -907,7 +910,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(107, 179);
+            this.button3.Location = new System.Drawing.Point(107, 305);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(133, 23);
             this.button3.TabIndex = 3;
@@ -917,7 +920,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(107, 208);
+            this.button4.Location = new System.Drawing.Point(107, 334);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(133, 23);
             this.button4.TabIndex = 3;
@@ -968,11 +971,31 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Adedi";
             // 
+            // pictureBox59
+            // 
+            this.pictureBox59.Location = new System.Drawing.Point(107, 125);
+            this.pictureBox59.Name = "pictureBox59";
+            this.pictureBox59.Size = new System.Drawing.Size(133, 120);
+            this.pictureBox59.TabIndex = 5;
+            this.pictureBox59.TabStop = false;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(26, 182);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Seç";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // MarketPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 746);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.pictureBox59);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -1054,6 +1077,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox56)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox59)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1137,5 +1161,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox59;
+        private System.Windows.Forms.Button button5;
     }
 }

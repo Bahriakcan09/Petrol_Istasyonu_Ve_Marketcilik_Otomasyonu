@@ -12,5 +12,6 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         public int Adet { get; set; }
         public double Fiyat { get; set; }
         public int İd { get; set; }
+        public string link { get; set; }
     }
 }
