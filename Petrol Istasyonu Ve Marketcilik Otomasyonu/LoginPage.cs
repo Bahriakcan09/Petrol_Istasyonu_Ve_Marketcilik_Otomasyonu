@@ -32,7 +32,8 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             bool login = await loginAsync();
             if (login)
             {
-                if(await searchMarketAsync())
+                bool search = await searchMarketAsync();
+                if(search)
                 {
                     GeneralPage generalPage = new GeneralPage();
                     generalPage.Show();
@@ -50,7 +51,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         }
         private async Task<bool> searchMarketAsync()
         {
-            if (!internetCheck.internet())
+            if (internetCheck.internet())
             {
                 var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
                 var data = await firebase.Child("MarketCalisanlari").OnceAsync<Market>();

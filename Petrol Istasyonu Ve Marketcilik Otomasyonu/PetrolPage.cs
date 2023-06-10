@@ -32,7 +32,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 petrol.Litre = Convert.ToInt32(textBox10.Text);
                 petrol.Fiyat = Convert.ToDouble(textBox7.Text);
 
-                await firebase.Child("001").Child("Petroller").PostAsync(petrol);
+                await firebase.Child(Properties.Settings.Default.marketID).Child("Petroller").PostAsync(petrol);
 
             }
             catch (Exception)
@@ -52,7 +52,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 petrol.Litre = Convert.ToInt32(textBox10.Text);
                 petrol.Fiyat = Convert.ToDouble(textBox7.Text);
 
-                await firebase.Child("001").Child("Petroller").Child(key).PutAsync(petrol);
+                await firebase.Child(Properties.Settings.Default.marketID).Child("Petroller").Child(key).PutAsync(petrol);
 
             }
             catch (Exception)
@@ -81,7 +81,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             dataGridView1.Columns.Add("KeySutunu", "key");
             dataGridView1.Columns[4].Visible = false;
             var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
-            var data = await firebase.Child("001").Child("Petroller").OnceAsync<petrolfiyat>();
+            var data = await firebase.Child(Properties.Settings.Default.marketID).Child("Petroller").OnceAsync<petrolfiyat>();
             foreach (var item in data)
             {
                 dataGridView1.Rows.Add(item.Object.İd, item.Object.Ad, item.Object.Fiyat, item.Object.Litre, item.Key);

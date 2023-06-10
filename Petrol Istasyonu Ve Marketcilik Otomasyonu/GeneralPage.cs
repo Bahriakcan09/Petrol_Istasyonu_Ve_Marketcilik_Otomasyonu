@@ -16,5 +16,17 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PetrolPage petrolPage = new PetrolPage();
+            petrolPage.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MarketPage marketPage = new MarketPage();
+            marketPage.Show();
+        }
     }
 }

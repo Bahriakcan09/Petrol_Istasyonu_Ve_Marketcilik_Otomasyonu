@@ -30,7 +30,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             dataGridView1.Columns.Add("KeySutunu", "key");
             dataGridView1.Columns[4].Visible = false;
             var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
-            var data = await firebase.Child("001").Child("Urunler").OnceAsync<URUNLER>();
+            var data = await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").OnceAsync<URUNLER>();
             foreach (var item in data)
             {
                 dataGridView1.Rows.Add(item.Object.İd,item.Object.Ad,item.Object.Fiyat,item.Object.Adet,item.Key);
@@ -49,7 +49,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                     urun.Fiyat = Convert.ToDouble(textBox3.Text);
                     urun.Adet = Convert.ToInt32(textBox4.Text);
 
-                    await firebase.Child("001").Child("Urunler").PostAsync(urun);
+                    await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").PostAsync(urun);
 
                 }
                 catch (Exception)
@@ -66,7 +66,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
         private async void button2_ClickAsync(object sender, EventArgs e)
         {
             FirebaseClient firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
-            await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).DeleteAsync();
+            await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).DeleteAsync();
             button4.PerformClick();
                    }
 
@@ -81,7 +81,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 urn.Fiyat = Convert.ToDouble(textBox3.Text);
                 urn.Adet = Convert.ToInt32(textBox4.Text);
 
-            await firebase.Child("001").Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
+            await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
         }
     }
 }
