@@ -36,6 +36,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 if(search)
                 {
                     Properties.Settings.Default.lastMail = usernameTxt.Text;
+                    Properties.Settings.Default.Save();
                     GeneralPage generalPage = new GeneralPage();
                     generalPage.Show();
                     this.Hide();
