@@ -106,6 +106,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginPage";
             this.Text = "LoginPage";
+            this.Load += new System.EventHandler(this.LoginPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -35,6 +35,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 bool search = await searchMarketAsync();
                 if(search)
                 {
+                    Properties.Settings.Default.lastMail = usernameTxt.Text;
                     GeneralPage generalPage = new GeneralPage();
                     generalPage.Show();
                     this.Hide();
@@ -93,6 +94,14 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 return false;
             }
 
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Properties.Settings.Default.lastMail))
+            {
+                usernameTxt.Text = Properties.Settings.Default.lastMail;
+            }
         }
     }
 }

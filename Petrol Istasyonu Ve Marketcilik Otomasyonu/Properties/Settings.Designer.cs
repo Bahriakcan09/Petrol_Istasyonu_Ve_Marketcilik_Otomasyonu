@@ -34,5 +34,17 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu.Properties {
                 this["marketID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string lastMail {
+            get {
+                return ((string)(this["lastMail"]));
+            }
+            set {
+                this["lastMail"] = value;
+            }
+        }
     }
 }
