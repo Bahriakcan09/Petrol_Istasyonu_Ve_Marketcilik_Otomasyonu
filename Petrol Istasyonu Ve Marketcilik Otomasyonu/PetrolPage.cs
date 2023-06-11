@@ -64,10 +64,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         private void PetrolPage_Load(object sender, EventArgs e)
         {
-            progressBar1.Maximum = 1000;
-            progressBar2.Maximum = 1000;
-            progressBar3.Maximum = 1000;
-            
+            progressBar1.Maximum = 10000;
         }
 
         private async void button4_ClickAsync(object sender, EventArgs e)
@@ -88,19 +85,29 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             }
         }
 
-        private void dataGridView1_RowHeaderMouseDoubleClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
            
             textBox9.Text = dataGridView1.SelectedRows[0].Cells[0].Value?.ToString();
             textBox8.Text = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
             textBox7.Text = dataGridView1.SelectedRows[0].Cells[2].Value?.ToString();
             textBox10.Text = dataGridView1.SelectedRows[0].Cells[3].Value?.ToString();
-            
+            progressBar1.Value = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[3].Value?.ToString());
+            label1.Text = dataGridView1.SelectedRows[0].Cells[3].Value?.ToString() + "/10000";
+            keySil= dataGridView1.SelectedRows[0].Cells[4].Value?.ToString();
         }
 
         private async void button5_ClickAsync(object sender, EventArgs e)
         {
             await Petrol_GuncelleAsync(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString());
+        }
+        string keySil;
+        private async void button1_ClickAsync(object sender, EventArgs e)
+
+        {
+            var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
+            await firebase.Child(Properties.Settings.Default.marketID).Child("Petroller").Child(keySil).DeleteAsync();
+          
         }
     }
 }
