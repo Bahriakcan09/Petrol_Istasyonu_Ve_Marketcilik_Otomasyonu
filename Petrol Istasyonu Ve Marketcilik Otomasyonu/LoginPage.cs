@@ -99,7 +99,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Properties.Settings.Default.lastMail))
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.lastMail))
             {
                 usernameTxt.Text = Properties.Settings.Default.lastMail;
             }
