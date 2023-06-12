@@ -44,16 +44,9 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
-            var url = "";
-
+       
                 try
                 {
-                  FirebaseStorage firebaseStorage = new FirebaseStorage("petrol-ve-marketcilik.appspot.com");
-                  using (var stream = new FileStream(path, FileMode.Open))
-                  {
-                     url = await firebaseStorage.Child(Properties.Settings.Default.marketID).Child(textBox2.Text+".png").PutAsync(stream);
-                     
-                  }
 
                   var firebase = new FirebaseClient("https://petrol-ve-marketcilik-default-rtdb.firebaseio.com/");
                     URUNLER urun = new URUNLER();
@@ -61,7 +54,6 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                     urun.Ad = textBox2.Text;
                     urun.Fiyat = Convert.ToDouble(textBox3.Text);
                     urun.Adet = Convert.ToInt32(textBox4.Text);
-                    urun.link = url;
 
                     await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").PostAsync(urun);
 
@@ -97,16 +89,13 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
 
             await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
         }
-        string path = "";
 
-        private void button5_Click(object sender, EventArgs e)
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            if (DialogResult.OK == openFileDialog.ShowDialog())
-            {
-                path = openFileDialog.FileName;
-                pictureBox59.ImageLocation = path;
-            }
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value?.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value?.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[2].Value?.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells[3].Value?.ToString();
 
         }
     }
