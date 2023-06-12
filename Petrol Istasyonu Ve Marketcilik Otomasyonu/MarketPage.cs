@@ -98,7 +98,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
             await firebase.Child(Properties.Settings.Default.marketID).Child("Urunler").Child(dataGridView1.SelectedRows[0].Cells[4].Value?.ToString()).PutAsync(urn);
         }
         string path = "";
-        
+
         private void button5_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -107,7 +107,7 @@ namespace Petrol_Istasyonu_Ve_Marketcilik_Otomasyonu
                 path = openFileDialog.FileName;
                 pictureBox59.ImageLocation = path;
             }
-            
+
         }
     }
 }
